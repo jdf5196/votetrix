@@ -12,7 +12,7 @@ require('./models/user.js');
 require('./config/passport');
 const Poll = mongoose.model('Poll');
 const User = mongoose.model('User');
-const secret = 'hello';
+const secret = process.env.SECRET;
 const Auth = jwt({secret: secret, userProperty: 'payload'});
 
 const app = express();
