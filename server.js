@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const jwt = require('express-jwt');
-const db = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/votingapp';
+const db = process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/votingapp';
 mongoose.connect(db);
 require('./models/poll.js');
 require('./models/user.js');
