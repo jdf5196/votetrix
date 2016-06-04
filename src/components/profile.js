@@ -56,6 +56,7 @@ class Profile extends React.Component{
 				window.location.href='/#/';
 			}else{
 				this.setState({user: user})
+				this.heading();
 			}
 		});
 		$.get('/getpolls', (data)=>{
