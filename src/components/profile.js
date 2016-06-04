@@ -9,11 +9,11 @@ class Profile extends React.Component{
 		super(props)
 		this.state = {
 			polls: [],
-			user: {}
+			user: {},
+			heading: ''
 		}
 		this.deleteButton = this.deleteButton.bind(this);
 		this.pollList = this.pollList.bind(this);
-		this.heading = this.heading.bind(this);
 	}
 	componentWillMount(){
 		let user = {};
@@ -29,6 +29,12 @@ class Profile extends React.Component{
 				Toastr.error('User does not exist')
 				window.location.href='/#/';
 			}else{
+				if(user._id == Auth.currendUserID){
+					this.setState({heading: 'Your Polls'})
+				}else{
+					let heading = 'Polls created by: '+user.name;
+					this.setState({heading: heading});
+				}
 				this.setState({user: user})
 			}
 		});
@@ -55,8 +61,13 @@ class Profile extends React.Component{
 				Toastr.error('User does not exist')
 				window.location.href='/#/';
 			}else{
-				this.setState({user: user})
-				this.heading();
+				if(user._id == Auth.currendUserID){
+					this.setState({heading: 'Your Polls'})
+				}else{
+					let heading = 'Polls created by: '+user.name;
+					this.setState({heading: heading});
+				}
+				this.setState({user: user});
 			}
 		});
 		$.get('/getpolls', (data)=>{
@@ -129,18 +140,6 @@ class Profile extends React.Component{
 
 		})
 	}
-	heading(){
-		let currentUser = Auth.currentUserID();
-		if(currentUser == this.state.user._id){
-			return (
-				<h2>Your Polls</h2>	
-			)
-		}else{
-			return(
-				<h2>Polls created by {this.state.user.name}</h2>	
-			)
-		}
-	}
 	deleteButton(id){
 		let currentUser = Auth.currentUserID();
 		if(currentUser == this.props.params.userId){
@@ -155,7 +154,7 @@ class Profile extends React.Component{
 				<Navbar />
 				<div className='push' />
 					<div className='centered container'>
-						{this.heading()}
+						<h2>{this.state.heading}</h2>
 		
 							<table className='table table-hover table-striped'>
 								<thead>
