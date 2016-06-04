@@ -29,7 +29,7 @@ class Profile extends React.Component{
 				Toastr.error('User does not exist')
 				window.location.href='/#/';
 			}else{
-				if(user._id == Auth.currendUserID){
+				if(user._id == Auth.currentUserID){
 					this.setState({heading: 'Your Polls'})
 				}else{
 					let heading = 'Polls created by: '+user.name;
@@ -49,6 +49,7 @@ class Profile extends React.Component{
 	}
 	componentWillReceiveProps(newProps){
 		this.setState({polls: []});
+		let user = {};
 		const polls = [];
 		$.get('/getuser', (data)=>{
 			for(const i in data){
@@ -61,7 +62,7 @@ class Profile extends React.Component{
 				Toastr.error('User does not exist')
 				window.location.href='/#/';
 			}else{
-				if(user._id == Auth.currendUserID){
+				if(user._id == Auth.currentUserID){
 					this.setState({heading: 'Your Polls'})
 				}else{
 					let heading = 'Polls created by: '+user.name;
