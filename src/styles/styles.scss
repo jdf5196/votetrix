@@ -1,0 +1,252 @@
+$color: rgba(60, 166, 241, 1);
+$color2: rgba(173, 107, 255, 1);
+$width: calc(100% - 40px);
+
+@mixin linear-gradient($c1, $c2){
+	background: -webkit-linear-gradient($c1, $c2);
+	background: -moz-linear-gradient($c1, $c2);
+	background: -ms-linear-gradient($c1, $c2);
+	background: linear-gradient($c1, $c2);
+}
+
+@mixin transform($deg){
+	-webkit-transform: skewY($deg);
+  	-moz-transform: skewY($deg);
+  	-ms-transform: skewY($deg);
+  	-o-transform: skewY($deg);
+  	transform: skewY($deg);
+  	-webkit-backface-visibility: hidden;
+  	backface-visibility: initial;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	position:relative;
+	margin: 0;
+	margin-bottom: -50px;
+	padding-bottom:5rem;
+	min-height: 100%;
+	background-color: $color + 175;
+}
+
+.greeting-text{
+	color: $color + 200;
+}
+.input-container{
+	margin-top:65px;
+}
+.center{
+	text-align:center;
+}
+.symbol{
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	background-color: white;
+	line-height: 40px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.check{
+	font-size:90px;
+	color: #7688F8
+}
+.header{
+	margin-top:-20px;
+}
+.home-header{
+	@include linear-gradient($color, $color2);
+	height: 350px;
+	width: 100%;
+	margin-top:-20px;
+	padding-top:50px;
+	text-align:center;
+}
+.homeBtn{
+	background-color: rgba(0,0,0,0);
+	margin-left:15px;
+	margin-right:15px;
+	width: 136px;
+}
+.homeButton{
+	@extend .homeBtn;
+	margin-left:0px;
+	margin-right:0px;
+}
+.homeText{
+	text-align:center;
+}
+.pollHeading{
+	text-align:center;
+}
+.centered{
+	max-width: 600px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.explanation{
+	height: 250px;
+	background: $color2;
+}
+.navbar{
+	height: 50px;
+}
+.poll-container{
+	margin-top:20px;
+}
+.poll{
+	margin-top:30px;
+}
+.push{
+	height: 50px;
+}
+.submitPoll{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.footer{
+	height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	text-align: center;
+}
+.remove{
+	width: 35px;
+	margin-right: 5px;
+	float:right;
+}
+.option{
+	width: $width;
+	margin-top:10px;
+}
+.button-div{
+	margin-top:20px;
+}
+.button{
+	margin-right: 10px;
+}
+#collapse{
+	float:right;
+}
+.pollContainer{
+	background-color:#5D7986;
+	padding:100px;
+	text-align:center;
+}
+#chart{
+	float:right;
+}
+.chartDiv{
+	text-align:center;
+	margin-top:-100px;
+}
+.info{
+	text-align:center;
+	color: #222222;
+	width:auto;
+	height:auto;
+	padding:5px;
+	font:12px;
+    border-radius: 100px;
+    .infoText{
+      font-weight: bold;
+      margin-left:auto;
+	  margin-right: auto;
+	  text-align:center;
+    }
+    height: 150px;
+    width: 150px;
+    margin-top:-280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:25px;
+
+}
+.title{
+	text-align:center;
+}
+.legendDiv{
+	display:inline-block;
+	margin-right: 5px;
+	margin-left: 15px;
+}
+.legend{
+	text-align:center;
+	padding:0;
+	margin-left:-50px;
+	margin-top:90px;
+}
+.voted{
+	text-align:center;
+}
+.noshow{
+	display:none;
+}
+ul li {
+	display:inline-block;
+}
+.selection{
+	margin-top:37px;
+}
+path{
+	stroke: #fff;
+	stroke-width: 3px;
+}
+label{
+	margin-left:10px;
+}
+.toast-top-center{
+	margin-top:50px;
+}
+
+.selection{
+		text-align:center;
+}
+
+.chartDiv{
+	margin-top:0px;
+}
+#chart{
+	float:none;
+}
+#twitter{
+	height:30px;
+	margin-left:auto;
+	margin-right:auto;
+	&:hover{
+		height:32px;
+		margin-bottom:-1px;
+		margin-top:-1px;
+	}
+}
+.pollContainer{
+	padding:0px;
+}
+.pollForm{
+	text-align:center;
+}
+.legend{
+	max-width: 500px;
+	min-height: 40px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+.hidden{
+	display:none;
+}
+
+@media(max-width: 425px){
+
+	.info{
+		margin-right:0px;
+		margin-left:125px;
+	}
+}
