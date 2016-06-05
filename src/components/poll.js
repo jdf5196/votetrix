@@ -38,9 +38,9 @@ class Poll extends React.Component{
 		this.voted = this.voted.bind(this);
 	}
 	componentWillMount(){
-		$.get("http://ipinfo.io", function(response) {
+		$.get("https://api.ipify.org/?format=json", function(response) {
 			ip = response.ip;
-		}, "jsonp");
+		});
 		$.get('/getpolls', (data) => {
 			PollData = data;
 			const find = id => {
@@ -65,9 +65,9 @@ class Poll extends React.Component{
 		});
 	}
 	componentWillReceiveProps(newProps){
-			$.get("http://ipinfo.io", function(response) {
+			$.get("https://api.ipify.org/?format=json", function(response) {
 				ip = response.ip;
-			}, "jsonp");
+			});
 			const find = id => {
 				for(var i in PollData){
 					if(PollData[i]._id == id){
