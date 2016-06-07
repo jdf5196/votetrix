@@ -51,8 +51,14 @@ class Create extends React.Component {
 			Toastr.error('Please log in or register to create a new poll.')
 			window.location.href='/#/login';
 		}
+		let empty = Boolean;
 		e.preventDefault();
-		if(this.state.title === '' || this.state.options[0].name === '' || this.state.options[1].name === ''){
+		for(const i in this.state.options){
+			if(this.state.options[i].name === ''){
+				empty = true
+			}
+		}
+		if(this.state.title === '' || empty === true){
 			Toastr.options.positionClass = 'toast-top-center'
 			Toastr.error('Please fill out form completely')
 			return

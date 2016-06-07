@@ -185,6 +185,15 @@ class Poll extends React.Component{
 				return
 			}
 			let selections = document.getElementsByName('select');
+			console.log(this.state.options);
+			console.log(custom);
+			for(var i in this.state.polls.options){
+				if(this.state.polls.options[i].name == custom){
+					Toastr.options.positionClass = 'toast-top-center';
+					Toastr.error('That answer is already a choice.')
+					return
+				}
+			}
 			for(var i in selections){
 				if(selections[i].selected){
 					if(selections[i].value == 0){
