@@ -102,8 +102,8 @@ app.put('/vote', (req, res)=>{
 	}
 });
 
-app.put('/customvote', Auth, (req, res, next)=>{
-	const poll = req.body.poll, custom = req.body.answer, user = req.payload._id;
+app.put('/customvote', (req, res, next)=>{
+	/*const poll = req.body.poll, custom = req.body.answer, user = req.payload._id;
 	Poll.findOne({_id: poll._id}, (err, aPoll)=>{
 		if(err){return err};
 		if(aPoll.votersID.indexOf(user) > -1){
@@ -116,7 +116,8 @@ app.put('/customvote', Auth, (req, res, next)=>{
 			if(err){return next(err)}
 			res.json(aPoll)
 		})
-	})
+	})*/
+	console.log(req.payload)
 });
 
 app.post('/register', (req, res, next)=>{

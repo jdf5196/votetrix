@@ -71,6 +71,7 @@ class Create extends React.Component {
 					)
 				})
 		}
+		console.log(Auth.getToken())
 		$.ajax({
 			type: 'POST',
 			url: '/polls',
