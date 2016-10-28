@@ -16,6 +16,7 @@ const secret = process.env.SECRET;
 const Auth = jwt({secret: secret, userProperty: 'payload'});
 
 const app = express();
+app.use(compression());
 
 const port = process.env.PORT || 5000;
 
