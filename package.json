@@ -20,6 +20,7 @@
   "homepage": "https://github.com/jdf5196/voting-app#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "compression": "^1.6.2",
     "exports-loader": "^0.6.3",
     "express": "^4.13.4",
     "express-jwt": "^3.4.0",

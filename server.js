@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const express = require('express');
+const compression = require('compression');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const jwt = require('express-jwt');
