@@ -22,7 +22,9 @@ $width: calc(100% - 40px);
 html{
 	height: 100%;
 }
-
+form{
+	font-size:16px;
+}
 body{
 	position:relative;
 	margin: 0;
@@ -37,6 +39,9 @@ body{
 }
 .input-container{
 	margin-top:65px;
+}
+.form-control{
+	font-size:16px !important;
 }
 .center{
 	text-align:center;
@@ -194,6 +199,7 @@ ul li {
 }
 .selection{
 	margin-top:37px;
+	font-size:16px;
 }
 path{
 	stroke: #fff;
