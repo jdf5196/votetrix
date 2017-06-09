@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const cluster = require('cluster');
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
@@ -13,7 +14,7 @@ require('./models/user.js');
 require('./config/passport');
 const Poll = mongoose.model('Poll');
 const User = mongoose.model('User');
-const secret = process.env.SECRET;
+const secret = process.env.SECRET || 'secret';
 const Auth = jwt({secret: secret, userProperty: 'payload'});
 
 const app = express();
@@ -104,8 +105,8 @@ app.put('/vote', (req, res)=>{
 	}
 });
 
-app.put('/customvote', (req, res, next)=>{
-	/*const poll = req.body.poll, custom = req.body.answer, user = req.payload._id;
+app.put('/customvote', Auth, (req, res, next)=>{
+	const poll = req.body.poll, custom = req.body.answer, user = req.payload._id;
 	Poll.findOne({_id: poll._id}, (err, aPoll)=>{
 		if(err){return err};
 		if(aPoll.votersID.indexOf(user) > -1){
@@ -118,8 +119,7 @@ app.put('/customvote', (req, res, next)=>{
 			if(err){return next(err)}
 			res.json(aPoll)
 		})
-	})*/
-	console.log(req.payload)
+	})
 });
 
 app.post('/register', (req, res, next)=>{

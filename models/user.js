@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const secret = process.env.SECRET;
+const secret = process.env.SECRET || 'secret';
 
 const UserSchema = new mongoose.Schema({
 	name: {type: String, lowercase: true, unique: true},
