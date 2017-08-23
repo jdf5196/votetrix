@@ -4,7 +4,6 @@ import Footer from './footer.js';
 import Toastr from 'toastr';
 import Auth from '../javascripts/auth.js';
 
-
 class Create extends React.Component {
 	constructor(props){
 		super(props);

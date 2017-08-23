@@ -26,3 +26,4 @@ ReactDOM.render(
 		<Route path='/profile/:userId' component={Profile} />
 	</Router>), 
 	document.getElementById('app'));
+	
