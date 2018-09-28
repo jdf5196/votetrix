@@ -95,7 +95,10 @@ app.put('/vote', (req, res)=>{
 					aPoll.totalVotes++
 					aPoll.votersIP.push(ip);
 					aPoll.save((err, aPoll)=>{
-						if(err){return err}
+						if(err){
+							console.log(err) 
+							return err
+						}
 					})
 				}
 			}
