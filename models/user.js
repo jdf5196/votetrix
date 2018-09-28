@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
 	votedFor: [String],
 	hash: String,
 	salt: String
-});
+}, {usePushEach: true});
 
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');

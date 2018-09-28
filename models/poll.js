@@ -13,6 +13,6 @@ const PollSchema = new mongoose.Schema({
 	totalVotes: Number,
 	votersID: [String],
 	votersIP: [String]
-});
+}, {usePushEach: true});
 
 mongoose.model('Poll', PollSchema);
