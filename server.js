@@ -41,7 +41,7 @@ app.post('/polls', Auth, (req, res) => {
 	});
 	poll.totalVotes = 0;
 	poll.save((err, poll)=>{
-		if(err){return next(err);}
+		if(err){return err;}
 	});
 	res.json(poll);
 
@@ -75,7 +75,7 @@ app.put('/vote', (req, res)=>{
 				aPoll.totalVotes++
 				aPoll.votersID.push(user);
 				aPoll.save((err, aPoll)=>{
-					if(err){return next(err)}
+					if(err){return err}
 				})
 			}
 		}
@@ -95,7 +95,7 @@ app.put('/vote', (req, res)=>{
 					aPoll.totalVotes++
 					aPoll.votersIP.push(ip);
 					aPoll.save((err, aPoll)=>{
-						if(err){return next(err)}
+						if(err){return err}
 					})
 				}
 			}
@@ -116,7 +116,7 @@ app.put('/customvote', Auth, (req, res, next)=>{
 		aPoll.totalVotes++;
 		aPoll.votersID.push(user);
 		aPoll.save((err, aPoll)=>{
-			if(err){return next(err)}
+			if(err){return err}
 			res.json(aPoll)
 		})
 	})
@@ -144,7 +144,7 @@ app.post('/login', function(req, res, next){
 		return res.status(400).json({message:'Please fill out all fields.'});
 	}
 	passport.authenticate('local', function(err, user, info){
-		if(err){return next(err);}
+		if(err){return err;}
 
 		if(user){
 			return res.json({token: user.generateJWT()});
