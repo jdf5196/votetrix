@@ -273,7 +273,7 @@ class Poll extends React.Component{
 						<h2 className='title col-xs-12'>{this.state.polls.title}</h2>
 						{this.voted()}
 						<a target="_blank" href={"https://twitter.com/intent/tweet?text=Votetrix Question: "+this.state.polls.title+" - &url=https://votetrix.herokuapp.com/%23/poll/"+this.state.polls._id} class="twitter-share-button">
-							<img id='twitter' src='http://www.cliparthut.com/clip-arts/210/twitter-bird-210309.png' />
+							<img id='twitter' src='http://www.cliparthut.com/clip-arts/184/twitter-bird-clipart-62-184435.png' />
   						</a>
 						<div className='chartDiv'>
 							{this.chart()}

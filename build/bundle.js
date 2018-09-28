@@ -47160,7 +47160,7 @@
 							_react2.default.createElement(
 								'a',
 								{ target: '_blank', href: "https://twitter.com/intent/tweet?text=Votetrix Question: " + this.state.polls.title + " - &url=https://votetrix.herokuapp.com/%23/poll/" + this.state.polls._id, 'class': 'twitter-share-button' },
-								_react2.default.createElement('img', { id: 'twitter', src: 'http://www.cliparthut.com/clip-arts/210/twitter-bird-210309.png' })
+								_react2.default.createElement('img', { id: 'twitter', src: 'http://www.cliparthut.com/clip-arts/184/twitter-bird-clipart-62-184435.png' })
 							),
 							_react2.default.createElement(
 								'div',
