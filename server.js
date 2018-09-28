@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const jwt = require('express-jwt');
 const db = process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/votingapp';
-mongoose.connect(db);
+mongoose.connect(db, { useMongoClient: true });
 require('./models/poll.js');
 require('./models/user.js');
 require('./config/passport');
@@ -94,15 +94,15 @@ app.put('/vote', (req, res)=>{
 					aPoll.options[i].votes++
 					aPoll.totalVotes++
 					aPoll.votersIP.push(ip);
-					aPoll.save((err, aPoll)=>{
-						if(err){
-							console.log(err) 
-							return err
-						}
-					})
 				}
 			}
-			res.json(aPoll);
+			aPoll.save((err, aPoll)=>{
+				if(err){
+					console.log(err) 
+					return err
+				}
+				res.json(aPoll);
+			})
 			}
 		});
 	}
